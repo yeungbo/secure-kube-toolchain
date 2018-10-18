@@ -35,6 +35,11 @@ stages:
       # bx cr build --help
 
       echo "=========================================================="
+      pwd
+      ls
+      mv ae-register-Template.yaml ${SERVICE_NAME}.yaml
+      echo "========================${SERVICE_NAME}.yaml=================================="
+      cat ${SERVICE_NAME}.yaml
       
 - name: VALIDATE
   inputs:
