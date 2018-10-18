@@ -77,24 +77,16 @@ stages:
       #!/bin/bash
       # uncomment to debug the script
       # set -x
-      # copy the script below into your app code repo (e.g. ./scripts/check_vulnerabilities.sh) and 'source' it from your pipeline job
-      #    source ./scripts/check_vulnerabilities.sh
-      # alternatively, you can source it from online script:
-      #    source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_vulnerabilities.sh")
-      # ------------------
-      # source: https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_vulnerabilities.sh
+      
       # Input env variables (can be received via a pipeline environment properties.file.
       echo "IMAGE_NAME=${IMAGE_NAME}"
       echo "BUILD_NUMBER=${BUILD_NUMBER}"
       echo "REGISTRY_URL=${REGISTRY_URL}"
       echo "REGISTRY_NAMESPACE=${REGISTRY_NAMESPACE}"
       #View build properties
-      cat build.properties
-      # also run 'env' command to find all available env variables
-      # or learn more about the available environment variables at:
-      # https://console.bluemix.net/docs/services/ContinuousDelivery/pipeline_deploy_var.html#deliverypipeline_environment
-      echo "SERVICE_NAME=${SERVICE_NAME}"
-      bx cr images
+      
+      echo "TODO: check availability of access endpoint!"
+
 - name: DEPLOY
   inputs:
   - type: job
@@ -133,4 +125,5 @@ stages:
       echo "CLUSTER_NAMESPACE=${CLUSTER_NAMESPACE}"
       echo "SERVICE_NAME=${SERVICE_NAME}"
       echo "=========================================================="
+      source ops_ae_registry.sh
       
