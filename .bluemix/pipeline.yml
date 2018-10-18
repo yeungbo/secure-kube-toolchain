@@ -2,17 +2,14 @@
 stages:
 - name: BUILD
   properties:
-  - name: CF_APP_NAME
-    value: ${CF_APP_NAME}
-    type: text
-  - name: APP_URL
-    value: ${CF_APP_NAME}
-    type: text
-  - name: PROD_CLUSTER_NAME
-    value: ${PROD_CLUSTER_NAME}
-    type: text
   - name: SERVICE_NAME
     value: ${SERVICE_NAME}
+    type: text
+  - name: CLUSTER_NAMESPACE
+    value: ${CLUSTER_NAMESPACE}
+    type: text
+  - name: ACCESS_ENDPOINT_NAME
+    value: ${ACCESS_ENDPOINT_NAME}
     type: text
   inputs:
   - type: git
@@ -32,16 +29,7 @@ stages:
     script: |
       #!/bin/bash
       set -x
-      env
-      echo -e "Build environment variables:"
-      echo "REGISTRY_URL=${REGISTRY_URL}"
-      echo "REGISTRY_NAMESPACE=${REGISTRY_NAMESPACE}"
-      echo "IMAGE_NAME=${IMAGE_NAME}"
-      echo "BUILD_NUMBER=${BUILD_NUMBER}"
-      echo "ARCHIVE_DIR=${ARCHIVE_DIR}"
-      echo "SERVICE_NAME=${SERVICE_NAME}"
-      echo "CF_APP_NAME=${CF_APP_NAME}"
-      
+     
       mkdir -p $ARCHIVE_DIR
       echo -e "Build environment variables:" > $ARCHIVE_DIR/build.properties
       echo "CLUSTER_NAMESPACE=${CLUSTER_NAMESPACE}" >> $ARCHIVE_DIR/build.properties
@@ -51,6 +39,7 @@ stages:
       echo "BUILD_NUMBER=${BUILD_NUMBER}" >> $ARCHIVE_DIR/build.properties
       echo "SERVICE_NAME=${SERVICE_NAME}" >> $ARCHIVE_DIR/build.properties
       echo "CF_APP_NAME=${CF_APP_NAME}" >> $ARCHIVE_DIR/build.properties
+      echo "ACCESS_ENDPOINT_NAME=${ACCESS_ENDPOINT_NAME}" >> $ARCHIVE_DIR/build.properties
       # Learn more about the available environment variables at:
       # https://console.bluemix.net/docs/services/ContinuousDelivery/pipeline_deploy_var.html#deliverypipeline_environment
 
@@ -58,7 +47,6 @@ stages:
       # bx cr build --help
 
       echo "=========================================================="
-      env
       pwd
       ls
       mv ae-register-Template.yaml ${SERVICE_NAME}.yaml

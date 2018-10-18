@@ -44,13 +44,27 @@
         },
         "service-name": {
             "description": {
-              "$ref": "#/messages/deploy.svcDescription"
+              "$ref": "#/messages/deploy.serviceDescription"
+            },
+            "type": "string",
+            "pattern": "\\S"
+        },
+        "cluster-ns-name": {
+            "description": {
+              "$ref": "#/messages/deploy.clusternsDescription"
+            },
+            "type": "string",
+            "pattern": "\\S"
+        },
+        "ae-name": {
+            "description": {
+              "$ref": "#/messages/deploy.aeDescription"
             },
             "type": "string",
             "pattern": "\\S"
         }
     },
-    "required": ["prod-region", "api-key", "prod-cluster-name", "app-name", "service-name"],
+    "required": ["prod-region", "api-key", "prod-cluster-name", "app-name", "service-name", "cluster-ns-name", "ae-name"],
     "form": [
        {
           "type": "validator",
@@ -69,6 +83,20 @@
             "$ref": "#/messages/deploy.serviceName"
           },
           "key": "service-name"
+        },{
+          "type": "text",
+          "readonly": false,
+          "title": {
+            "$ref": "#/messages/deploy.clusternsName"
+          },
+          "key": "cluster-ns-name"
+        },{
+          "type": "text",
+          "readonly": false,
+          "title": {
+            "$ref": "#/messages/deploy.aeName"
+          },
+          "key": "ae-name"
         },{
 	  "type": "password",
           "readonly": false,
