@@ -1,6 +1,16 @@
 ---
 stages:
 - name: BUILD
+  properties:
+  - name: SERVICE_NAME
+    value: undefined
+    type: text
+  - name: CLUSTER_NAMESPACE
+    value: undefined
+    type: text
+  - name: ACCESS_ENDPOINT_NAME
+    value: undefined
+    type: text
   inputs:
   - type: git
     branch: master

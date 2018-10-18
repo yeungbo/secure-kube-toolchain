@@ -41,9 +41,16 @@
             },
             "type": "string",
             "pattern": "\\S"
+        },
+        "service-name": {
+            "description": {
+              "$ref": "#/messages/deploy.svcDescription"
+            },
+            "type": "string",
+            "pattern": "\\S"
         }
     },
-    "required": ["prod-region", "api-key", "prod-cluster-name", "app-name"],
+    "required": ["prod-region", "api-key", "prod-cluster-name", "app-name", "service-name"],
     "form": [
        {
           "type": "validator",
@@ -55,6 +62,13 @@
             "$ref": "#/messages/deploy.appName"
           },
           "key": "app-name"
+        },{
+          "type": "text",
+          "readonly": false,
+          "title": {
+            "$ref": "#/messages/deploy.svcName"
+          },
+          "key": "service-name"
         },{
 	  "type": "password",
           "readonly": false,
