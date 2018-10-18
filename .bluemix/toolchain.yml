@@ -13,9 +13,9 @@ template:
     - hello-register-repo
   info:
     git url: >-
-      [https://github.com/yeungbo/register-service-with-istio](https://github.com/yeungbo/register-service-with-istio)
+      [https://github.com/yeungbo/secure-kube-toolchain](https://github.com/yeungbo/secure-kube-toolchain)
     git branch: >-
-      [master](https://github.com/yeungbo/register-service-with-istio/tree/master)
+      [master](https://github.com/yeungbo/secure-kube-toolchain/tree/master)
 toolchain:
   name: 'register-service-kube-{{timestamp}}'
   template:
@@ -43,7 +43,7 @@ services:
         env:
           GIT_REPO: hello-register-repo
           CF_APP_NAME: '{{form.pipeline.parameters.app-name}}'
-          CLUSTER_NAMESPACE: 'sdt-istio'
+          CLUSTER_NAMESPACE: "sdt-istio"
           SERVICE_NAME: '{{form.pipeline.parameters.service-name}}'
           PROD_REGION_ID: '{{form.pipeline.parameters.prod-region}}'
           REGISTRY_REGION_ID: '{{form.pipeline.parameters.prod-region}}'

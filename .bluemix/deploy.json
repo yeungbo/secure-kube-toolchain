@@ -66,7 +66,7 @@
           "type": "text",
           "readonly": false,
           "title": {
-            "$ref": "#/messages/deploy.svcName"
+            "$ref": "#/messages/deploy.serviceName"
           },
           "key": "service-name"
         },{
