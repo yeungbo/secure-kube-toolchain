@@ -18,7 +18,7 @@ stages:
     image_name: ${CF_APP_NAME}
     script: |
       #!/bin/bash
-      #set -x
+      set -x
 
       echo -e "Build environment variables:"
       echo "REGISTRY_URL=${REGISTRY_URL}"
@@ -30,6 +30,7 @@ stages:
       
       mkdir -p $ARCHIVE_DIR
       echo -e "Build environment variables:" > $ARCHIVE_DIR/build.properties
+      echo "CLUSTER_NAMESPACE=${CLUSTER_NAMESPACE}" >> $ARCHIVE_DIR/build.properties
       echo "REGISTRY_URL=${REGISTRY_URL}" >> $ARCHIVE_DIR/build.properties
       echo "REGISTRY_NAMESPACE=${REGISTRY_NAMESPACE}" >> $ARCHIVE_DIR/build.properties
       echo "IMAGE_NAME=${IMAGE_NAME}" >> $ARCHIVE_DIR/build.properties
