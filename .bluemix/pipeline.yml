@@ -1,16 +1,6 @@
 ---
 stages:
 - name: BUILD
-  properties:
-  - name: SERVICE_NAME
-    value: undefined
-    type: text
-  - name: CLUSTER_NAMESPACE
-    value: undefined
-    type: text
-  - name: ACCESS_ENDPOINT_NAME
-    value: undefined
-    type: text
   inputs:
   - type: git
     branch: master
@@ -37,6 +27,14 @@ stages:
       echo "BUILD_NUMBER=${BUILD_NUMBER}"
       echo "ARCHIVE_DIR=${ARCHIVE_DIR}"
       echo "SERVICE_NAME=${SERVICE_NAME}"
+      
+      mkdir -p $ARCHIVE_DIR
+      echo -e "Build environment variables:" > $ARCHIVE_DIR/build.properties
+      echo "REGISTRY_URL=${REGISTRY_URL}" >> $ARCHIVE_DIR/build.properties
+      echo "REGISTRY_NAMESPACE=${REGISTRY_NAMESPACE}" >> $ARCHIVE_DIR/build.properties
+      echo "IMAGE_NAME=${IMAGE_NAME}" >> $ARCHIVE_DIR/build.properties
+      echo "BUILD_NUMBER=${BUILD_NUMBER}" >> $ARCHIVE_DIR/build.properties
+      echo "SERVICE_NAME=${SERVICE_NAME}" >> $ARCHIVE_DIR/build.properties
       # Learn more about the available environment variables at:
       # https://console.bluemix.net/docs/services/ContinuousDelivery/pipeline_deploy_var.html#deliverypipeline_environment
 
@@ -86,7 +84,7 @@ stages:
       echo "REGISTRY_URL=${REGISTRY_URL}"
       echo "REGISTRY_NAMESPACE=${REGISTRY_NAMESPACE}"
       #View build properties
-      # cat build.properties
+      cat build.properties
       # also run 'env' command to find all available env variables
       # or learn more about the available environment variables at:
       # https://console.bluemix.net/docs/services/ContinuousDelivery/pipeline_deploy_var.html#deliverypipeline_environment
@@ -120,7 +118,7 @@ stages:
       echo "REGISTRY_NAMESPACE=${REGISTRY_NAMESPACE}"
       echo "REGISTRY_TOKEN=${REGISTRY_TOKEN}"
       #View build properties
-      # cat build.properties
+      cat build.properties
       # also run 'env' command to find all available env variables
       # or learn more about the available environment variables at:
       # https://console.bluemix.net/docs/services/ContinuousDelivery/pipeline_deploy_var.html#deliverypipeline_environment
