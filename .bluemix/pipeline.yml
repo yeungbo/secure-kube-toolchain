@@ -87,13 +87,13 @@ stages:
       
       echo "TODO: check availability of access endpoint!"
 
-- name: DEPLOY
+- name: REGISTER
   inputs:
   - type: job
     stage: BUILD
     job: Container build
   jobs:
-  - name: Deploy Kubernetes Pod
+  - name: Register Service Access Endpoint
     type: deployer
     target:
       region_id: ${PROD_REGION_ID}
@@ -115,7 +115,7 @@ stages:
       #echo "REGISTRY_NAMESPACE=${REGISTRY_NAMESPACE}"
       #echo "REGISTRY_TOKEN=${REGISTRY_TOKEN}"
       #View build properties
-      cat build.properties
+      #cat build.properties
       # also run 'env' command to find all available env variables
       # or learn more about the available environment variables at:
       # https://console.bluemix.net/docs/services/ContinuousDelivery/pipeline_deploy_var.html#deliverypipeline_environment
