@@ -92,6 +92,10 @@ stages:
   - type: job
     stage: BUILD
     job: Container build
+  properties:
+  - name: buildprops
+    value: build.properties
+    type: file  
   jobs:
   - name: Register Service Access Endpoint
     type: deployer
