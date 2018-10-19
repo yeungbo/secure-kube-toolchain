@@ -57,7 +57,7 @@ services:
   slack:
     parameters:
       api_token: "https://hooks.slack.com/services/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"
-      channel_name: "build_report"
+      channel_name: "register-service-{{form.pipeline.parameters.service-name}}"
       team_url: "ibm-watsonhealth"
 form:
   pipeline:
