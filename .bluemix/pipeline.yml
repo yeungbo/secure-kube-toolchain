@@ -18,7 +18,7 @@ stages:
   triggers:
   - type: commit
   jobs:
-  - name: Container build
+  - name: Initialzing Register
     type: builder
     build_type: cr
     target:
@@ -57,7 +57,7 @@ stages:
   inputs:
   - type: job
     stage: BUILD
-    job: Container build
+    job: Initialzing Register
   triggers:
   - type: stage
   properties:
@@ -65,7 +65,7 @@ stages:
     value: build.properties
     type: file  
   jobs:
-  - name: Vulnerability Advisor
+  - name: Access Endpoint Validator
     type: tester
     test_type: vulnerabilityadvisor
     use_image_from_build_input: true
@@ -91,7 +91,7 @@ stages:
   inputs:
   - type: job
     stage: BUILD
-    job: Container build
+    job: Initialzing Register
   properties:
   - name: buildprops
     value: build.properties
@@ -114,10 +114,6 @@ stages:
       # ------------------
       # source: https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/deploy_kubectl.sh
       # Input env variables (can be received via a pipeline environment properties.file.
-      #echo "BUILD_NUMBER=${BUILD_NUMBER}"
-      #echo "REGISTRY_URL=${REGISTRY_URL}"
-      #echo "REGISTRY_NAMESPACE=${REGISTRY_NAMESPACE}"
-      #echo "REGISTRY_TOKEN=${REGISTRY_TOKEN}"
       #View build properties
       #cat build.properties
       # also run 'env' command to find all available env variables
