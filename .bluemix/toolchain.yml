@@ -55,6 +55,7 @@ services:
   webide:
     service_id: orion
   slack:
+    service_id: slack
     parameters:
       api_token: "https://hooks.slack.com/services/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"
       channel_name: "register-service-{{form.pipeline.parameters.service-name}}"
