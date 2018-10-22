@@ -1,7 +1,7 @@
-# ![Icon](./.bluemix/secure-lock-kubernetes.png) Develop a Kubernetes app
+# ![Icon](./.bluemix/secure-lock-kubernetes.png) Exposing Service in SDT with ISTIO
 
 
-### Register a service access endpoint to ISTIO for service running in WH SDT Kubernetes Cluster
+### Register an access endpoint to ISTIO for service running in WH SDT Kubernetes Cluster
 This is a DevOps toolchain that is preconfigured for register service access endpoint with ISTIO service running in SDT K8S cluster, to expose a endpoint in BlueZone for dev/test purpose.
 
 Istio routing rules is pre-defined in source control, along with its Kubernetes deployment script.
