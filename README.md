@@ -1,12 +1,12 @@
 # ![Icon](./.bluemix/secure-lock-kubernetes.png) Develop a Kubernetes app
 
 
-### Continuously deliver a secure Docker app to a Kubernetes Cluster
-This Hello World application uses Docker with Node.js and includes a DevOps toolchain that is preconfigured for continuous delivery with Vulnerability Advisor, source control, issue tracking, and online editing, and deployment to the IBM Bluemix Containers service.
+### Register a service access endpoint to ISTIO for service running in WH SDT Kubernetes Cluster
+This is a DevOps toolchain that is preconfigured for register service access endpoint with ISTIO service running in SDT K8S cluster, to expose a endpoint in BlueZone for dev/test purpose.
 
-Application code is stored in source control, along with its Dockerfile and its Kubernetes deployment script.
-The target cluster is configured during toolchain setup (using a Bluemix API key and cluster name). You can later change these by altering the Delivery Pipeline configuration.
-Any code change to the Git repo will automatically be built, validated and deployed into the Kubernetes cluster.
+Istio routing rules is pre-defined in source control, along with its Kubernetes deployment script.
+The target service is configured with ISTIO during toolchain setup (using a Bluemix API key, cluster name, service name and namespace of cluster). You can later change these by altering the Delivery Pipeline configuration.
+Any code change to the routing rules repo will automatically be built, validated and update the routing policy in the Kubernetes cluster for the target service.
 
 ![Icon](./.bluemix/toolchain.png)
 
@@ -16,8 +16,5 @@ Any code change to the Git repo will automatically be built, validated and deplo
 ---
 ### Learn more 
 
-* Blog [Continuously deliver your app to Kubernetes with Bluemix](https://www.ibm.com/blogs/bluemix/2017/07/continuously-deliver-your-app-to-kubernetes-with-bluemix/)
-* Step by step [tutorial](https://www.ibm.com/devops/method/tutorials/tc_secure_kube)
-* [Getting started with Bluemix clusters](https://console.bluemix.net/docs/containers/container_index.html?pos=2)
-* [Getting started with toolchains](https://bluemix.net/devops/getting-started)
-* [Documentation](https://console.bluemix.net/docs/services/ContinuousDelivery/index.html?pos=2)
+* User Guide [Exposing YOUR Service with ISTIO service](https://apps.na.collabserv.com/wikis/home?lang=en-us#!/wiki/Wa0a1d43ca7a0_4fff_87ff_04006c762969/page/Exposing%20YOUR%20Service%20with%20ISTIO%20service)
+* [Documentation](https://apps.na.collabserv.com/wikis/home?lang=en-us#!/wiki/Wa0a1d43ca7a0_4fff_87ff_04006c762969/page/Multi-tenant%20Exposing%20Service%20with%20ISTIO)
