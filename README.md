@@ -14,32 +14,30 @@ Any code change to the routing rules repo will automatically be built, validated
 [![Deploy To Bluemix](https://console.bluemix.net/devops/graphics/create_toolchain_button.png)](https://console.bluemix.net/devops/setup/deploy/?repository=https%3A//github.com/yeungbo/secure-kube-toolchain)
 
 
-Toolchain Configuration Help
-(1) Toolchain
+---
+### Toolchain Configuration Help
+#### (1) _Toolchain_
+**Toolchain Name:** `Toolchain name` (Update toolchain name as needed)<br/>
+**Select Region:** `IBM Cloud region`<br/>
+**Select a resource group:** `IBM Cloud resource group`<br/>
+#### (2) _Git Repos_
+**Repository type:** `clone`<br/>
+**Source repository URL:** `https://github.com/yeungbo/register-service-with-istio`<br/>
+**Owner:** `Git owner or group name`<br/>
+**Repository Name:** `New git project/repo name` (Update repo name as needed)<br/>
+#### (3) _Delivery Pipeline_
+**App name:** `Name for the toolchain instance`<br/>
+**Service name:** `Service name in k8s cluster`<br/>
+**Cluster Namespace name:** `IBM Kubernates cluster deployment namespace that service running in`<br/>
+**Access Endpoint name:** `Access Endpoint name to register on ISTIO`<br/>
+**IBM Cloud API Key:** `IAM key to IBM Kubernates cluster` (create ahead)<br/>
+**Region:** `The IBM Cloud region`<br/>
+**Cluster Name:** `IBM Kubernates cluster name`<br/>
+#### (4) _Slack_
+**Slack webhook:** `Slack webhook URL`<br/>
+**Slack channel:** `#Slack channel Name`<br/>
+**Slack team name:** `ibm-watsonhealth`<br/>
 
-Toolchain Name: Toolchain name (Update toolchain name as needed)
-Select Region: CF region
-Choose an organization: CF organization
-(2) Git Repos
-
-Repository type: clone
-Source repository URL: https://github.ibm.com/whc-toolchain/whc-nodejs-starter
-Owner: Git owner or group name
-Repository Name: New git project/repo name (Update repo name as needed)
-(3) Delivery Pipeline
-
-App name: Service name
-IBM Cloud API Key: IAM key to IBM Kubernates cluster (create ahead)
-Container registry region: Container registry region
-Container registry namespace: Container registry namespace (create ahead)
-Cluster region: CF region
-Cluster name: IBM Kubernates cluster name
-Cluster namespace: IBM Kubernates cluster deployment namespace (create ahead)
-(4) Slack
-
-Slack webhook: Slack webhook URL
-Slack channel: #Slack channel Name
-Slack team name: ibm-watsonhealth
 
 ---
 ### Learn more 
